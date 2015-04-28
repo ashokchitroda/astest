@@ -1,0 +1,13 @@
+<style type="text/css">
+	.fieldMandatory{color: red;}
+	.form{width:310px;margin:50px auto;border:1px solid #333;padding:15px 70px 45px;position:relative;background:#C8E8FB;}
+	.form h3{position:absolute;top:-11px;left:35px;padding:0 8px;background:#fff;margin:0;border:1px solid #333;}
+	.form input{display:block;padding:6px 4px;width:300px;outline:0;border:1px solid #333;background:#fff;}
+	.form label{display:block;margin:30px 0 4px;}
+	.form label.error{display:block;margin:5px 0 4px; color:red;}
+	.form input.submit{width:100px;cursor:pointer;margin:40px 0 0;}
+	
+	.resultLayout{width:310px;margin:50px auto;border:1px solid #333;padding:15px 70px 45px;position:relative;background:#C8E8FB;}
+	.resultLayout h3{position:absolute;top:-11px;left:35px;padding:0 8px;background:#fff;margin:0;border:1px solid #333;}
+	.resultLayout label{display:block;margin:30px 0 4px; color:green; font: 15px arial, sans-serif; font-weight: bold;}
+</style>
