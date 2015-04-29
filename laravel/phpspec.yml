@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: articles
+        psr4_prefix: articles
+        src_path: app
