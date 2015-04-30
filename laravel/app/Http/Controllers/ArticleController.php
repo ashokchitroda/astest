@@ -3,7 +3,7 @@
 namespace articles\Http\Controllers;
 
 //use Illuminate\Support\Facades\Input;
-use articles\Http\Requests\ArticleRequest;
+use Illuminate\Http\Request;
 use PhpParser\Node\Name;
 use PhpParser\Builder\Namespace_;
 use articles\Article;
@@ -18,11 +18,11 @@ class ArticleController extends Controller {
 	/**
 	 * List of articles.
 	 *
+	 * @param  Illuminate\Http\Request $request
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		//return view('articles.index');
 		$article = Article::all();
 		
 		return View::make('articles.index')
@@ -32,10 +32,15 @@ class ArticleController extends Controller {
 	/**
 	 * List of articles.
 	 *
+	 * @param  Illuminate\Http\Request $request
 	 * @return Response
 	 */
-	public function listing()
+	public function listing(Request $request)
 	{
+		if(!$request->ajax()) {
+			return Redirect::to('articles');
+		}
+		
 		$article = Article::all();
 	
 		return View::make('articles.listing')
@@ -45,11 +50,15 @@ class ArticleController extends Controller {
 	/**
      * Show the form for creating a new resource.
      *
+     * @param  Illuminate\Http\Request $request
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
-    	//return view('articles.create');
+    	if(!$request->ajax()) {
+			return Redirect::to('articles');
+		}
+		
     	return View::make('articles.create');
     }
     
@@ -57,10 +66,15 @@ class ArticleController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
+     * @param  Illuminate\Http\Request $request
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
+    	if(!$request->ajax()) {
+    		return Redirect::to('articles');
+    	}
+    	
     	$rules = array(
     		'title'       => 'required|min:3|max:50',
     		'description'      => 'required|min:10|max:500'
@@ -91,10 +105,15 @@ class ArticleController extends Controller {
      * Display the specified resource.
      *
      * @param  int  $id
+     * @param  Illuminate\Http\Request $request
      * @return Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
+    	if(!$request->ajax()) {
+    		return Redirect::to('articles');
+    	}
+    	
     	$article = Article::find($id);
     
     	return View::make('articles.show')
@@ -105,10 +124,15 @@ class ArticleController extends Controller {
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
+     * @param  Illuminate\Http\Request $request
      * @return Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
+    	if(!$request->ajax()) {
+    		return Redirect::to('articles');
+    	}
+    	
     	// get the article
     	$article = Article::find($id);
     
@@ -121,12 +145,15 @@ class ArticleController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  int  $id
+     * @param  Illuminate\Http\Request $request
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-    	// validate
-    	// read more on validation at http://laravel.com/docs/validation
+    	if(!$request->ajax()) {
+    		return Redirect::to('articles');
+    	}
+    	
     	$rules = array(
 	    	'title'       => 'required|min:3|max:50',
     		'description'      => 'required|min:10|max:500'
@@ -156,10 +183,15 @@ class ArticleController extends Controller {
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     * @param  Illuminate\Http\Request $request
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
+    	if(!$request->ajax()) {
+    		return Redirect::to('articles');
+    	}
+    	
     	// delete
     	$article = Article::find($id);
     	$article->delete();
