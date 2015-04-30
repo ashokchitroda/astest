@@ -7,7 +7,6 @@
     .error{ color: red;}
     </style>
     {!! HTML::script('js/jquery.js') !!}
-    {!! HTML::script('js/validation.js') !!}
 </head>
 <body>
 <div class="container">
