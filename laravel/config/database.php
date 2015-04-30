@@ -55,9 +55,9 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'gopiicom_mandir'),
-			'username'  => env('DB_USERNAME', 'gopiicom_mandir'),
-			'password'  => env('DB_PASSWORD', '223200'),
+			'database'  => env('DB_DATABASE', 'astest'),
+			'username'  => env('DB_USERNAME', 'root'),
+			'password'  => env('DB_PASSWORD', ''),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
